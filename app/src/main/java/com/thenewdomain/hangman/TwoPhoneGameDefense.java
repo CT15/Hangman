@@ -41,8 +41,6 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
     String gameState;
     int gameStanding;
     String blankSpace;
-    String character1;
-    String character2;
 
     //Firebase related
     DatabaseReference roomReference;
@@ -84,9 +82,6 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
         intent = getIntent();
         roomKey = intent.getStringExtra("KEY");
 
-        character1 = "";
-        character2 = "";
-
         roomReference = FirebaseDatabase.getInstance().getReference().child("rooms").child(roomKey);
         roomReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -101,9 +96,7 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         tvPlayer1.setText(dataSnapshot.child("userName").getValue(String.class));
-                        character1 = dataSnapshot.child("currentChosenCharacter").getValue(String.class);
-                        Log.d(TAG, "character1: " + character1);
-                        tvCharacter1.setText(character1);
+                        tvCharacter1.setText(dataSnapshot.child("currentChosenCharacter").getValue(String.class));
                     }
 
                     @Override
@@ -117,8 +110,7 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         tvPlayer2.setText(dataSnapshot.child("userName").getValue(String.class));
-                        character2 = dataSnapshot.child("currentChosenCharacter").getValue(String.class);
-                        tvCharacter2.setText(character2);
+                        tvCharacter2.setText(dataSnapshot.child("currentChosenCharacter").getValue(String.class));
                     }
 
                     @Override
@@ -182,29 +174,9 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
 
                 tvSecretWord.setText(blankSpace);
 
-                int dead = 0;
-                String life = Integer.toString(lifeLine).trim();
+                tvLife.setText(Integer.toString(lifeLine).trim());
 
-                Log.d(TAG, "character1:: " + character1);
-
-                // ************************* NAGASE *************************
-                //"Opponent starts his defending phase with 1 less lifeline"
-                if(gameState.equals("player_1_guessing")) {
-                    if(character2.equals("Nagase")) {
-                        dead = 1;
-                        life += " - 1";
-                    }
-                } else if (gameState.equals("player_2_guessing")) {
-                    if(character1.equals("Nagase")) {
-                        dead = 1;
-                        life += " - 1";
-                    }
-                }
-                // ************************* NAGASE *************************
-
-                tvLife.setText(life);
-
-                if(lifeLine == dead || (noMoreBlanks(blankSpace) && !blankSpace.equals(""))){
+                if(lifeLine == 0 || (noMoreBlanks(blankSpace) && !blankSpace.equals(""))){
                     etGuessLetter.setEnabled(false);
                     etGuessLetter.setHint("");
                     btnCheck.setEnabled(false);
@@ -213,7 +185,7 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
                     //update TextView
                     HashMap<String, Object> temp = new HashMap<String, Object>();
 
-                    if(lifeLine == dead){
+                    if(lifeLine == 0){
                         tvLife.setText("YOU LOSE");
                         String answer = secretWord;
                         answer = answer.replace("", " ");

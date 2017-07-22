@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class BattleResultActivity extends AppCompatActivity {
     //xml
     private TextView tvUserName, tvCharacter, tvBattleStatus, tvPoint;
     private Button btnBackToMainMenuAfterBattle;
+    private ImageView ivCharacterImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class BattleResultActivity extends AppCompatActivity {
         tvBattleStatus = (TextView) findViewById(R.id.tvBattleStatus);
         tvPoint = (TextView) findViewById(R.id.tvPoint);
         btnBackToMainMenuAfterBattle = (Button) findViewById(R.id.btnBackToMainMenuAfterBattle);
+        ivCharacterImg = (ImageView) findViewById(R.id.ivCharacterImg2);
 
         intent = getIntent();
         roomKey = intent.getStringExtra("KEY");
@@ -65,7 +68,29 @@ public class BattleResultActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 tvUserName.setText(dataSnapshot.child("userName").getValue(String.class));
-                tvCharacter.setText(dataSnapshot.child("currentChosenCharacter").getValue(String.class));
+                String currentChosenCharacter = dataSnapshot.child("currentChosenCharacter").getValue(String.class);
+                tvCharacter.setText(currentChosenCharacter);
+
+                switch (currentChosenCharacter){
+                    case "Billy":
+                        ivCharacterImg.setImageResource(R.drawable.character_billy);
+                        break;
+                    case "Nagase":
+                        ivCharacterImg.setImageResource(R.drawable.character_nagase);
+                        break;
+                    case "Leo Kim":
+                        ivCharacterImg.setImageResource(R.drawable.character_leokim);
+                        break;
+                    case "Dr. James":
+                        ivCharacterImg.setImageResource(R.drawable.character_drjames);
+                        break;
+                    case "Yasuo":
+                        ivCharacterImg.setImageResource(R.drawable.character_yasuo);
+                        break;
+                    case "Carter":
+                        ivCharacterImg.setImageResource(R.drawable.character_carter);
+                        break;
+                }
 
                 point = dataSnapshot.child("rankPoints").getValue(Integer.class);
             }
