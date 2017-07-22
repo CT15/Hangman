@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Hangman</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="user_name">User Name</string>
+    <string name="sign_in">Sign In</string>
+    <string name="password">Password</string>
+    <string name="btn_sign_in">Sign In</string>
+    <string name="do_not_have_any_account_yet">Do not have any account yet?</string>
+    <string name="register_here">Register Here</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="battle_symbol" />
+    <string name="character_symbol" />
+    <string name="battle">Battle</string>
+    <string name="characters">Characters</string>
+    <string name="intro" />
+    <string name="game_guides">Game Guides</string>
+    <string name="get_ready_for_a_fierce_fight">Get Ready for a Fierce Fight!</string>
+    <string name="introduction_to_the_game">Introduction to The Game</string>
+    <string name="btnbattle">Battle</string>
+    <string name="view">View</string>
+    <string name="view_your_collections_of_characters">View Your Collections of Characters</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="ability">Ability</string>
+    <string name="character_name">Character Name</string>
+    <string name="use_character">Use Character</string>
+    <string name="character_image">character_image</string>
+    <string name="_2_phones">2 Phones</string>
+    <string name="_1_phone">1 Phone</string>
+    <string name="chosen_character" />
+    <string name="rank_points">Rank Points:</string>
+    <string name="user_name1">User Name</string>
+    <string name="textview">TextView</string>
+    <string name="user_name2">User Name</string>
+    <string name="character_name1">Character Name</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="confirm">Confirm</string>
+    <string name="enter_word">Enter Word</string>
+    <string name="player_1">Player 1</string>
+    <string name="back">Back</string>
+    <string name="secretWord">_ _ _ _ _ _ _ _ _ _ _ _ _ _</string>
+    <string name="life">Life</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
