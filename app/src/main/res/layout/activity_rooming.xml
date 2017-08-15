@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#3d3d3d"
     tools:context="com.thenewdomain.hangman.RoomingActivity">
 
     <LinearLayout
@@ -15,8 +16,8 @@
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            app:srcCompat="@drawable/hangmanlogo" />
+            android:layout_height="140dp"
+            app:srcCompat="@drawable/hangmanlogo1" />
 
         <TextView
             android:id="@+id/tvEnterRoomName"
@@ -28,7 +29,8 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:text="Enter Room Name"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/etRoomName"
@@ -39,7 +41,12 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@drawable/oval"/>
 
         <Button
             android:id="@+id/btnCreateRoom"
@@ -49,7 +56,9 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:background="@drawable/oval_blue"
+            android:textColor="#ffffff"
             android:fontFamily="serif"/>
 
         <Button
@@ -60,7 +69,9 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:background="@drawable/oval_blue"
+            android:textColor="#ffffff"
             android:fontFamily="serif"/>
         <Button
             android:id="@+id/btnBackToMainMenuFromRooming"
@@ -70,7 +81,9 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:background="@drawable/oval_blue"
+            android:textColor="#ffffff"
             android:fontFamily="serif"/>
     </LinearLayout>
 </RelativeLayout>

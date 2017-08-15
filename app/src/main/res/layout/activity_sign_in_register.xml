@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="#3d3d3d"
     tools:context="com.thenewdomain.hangman.SignInRegister">
 
 
@@ -16,9 +16,9 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="140dp"
             android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/hangmanlogo"
+            app:srcCompat="@drawable/hangmanlogo1"
             android:layout_marginTop="24dp"/>
 
         <TextView
@@ -29,7 +29,8 @@
             android:fontFamily="cursive"
             android:gravity="center"
             android:text="@string/sign_in"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/etEmail2"
@@ -42,7 +43,12 @@
             android:fontFamily="serif"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@drawable/oval"/>
 
         <EditText
             android:id="@+id/etPassword2"
@@ -55,7 +61,13 @@
             android:layout_marginTop="10dp"
             android:fontFamily="serif"
             android:hint="@string/password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textSize="15sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@drawable/oval"/>
 
         <Button
             android:id="@+id/btnSignIn"
@@ -66,7 +78,9 @@
             android:layout_marginTop="20dp"
             android:fontFamily="serif"
             android:text="@string/btn_sign_in"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            android:background="@drawable/oval_blue"
+            android:textColor="#ffffff"/>
 
         <TextView
             android:id="@+id/tvDoNotHaveAccountYet"
@@ -78,7 +92,8 @@
             android:fontFamily="serif"
             android:gravity="center"
             android:text="@string/do_not_have_any_account_yet"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:textColor="#ffffff"/>
 
         <TextView
             android:id="@+id/tVRegisterHere"
@@ -90,7 +105,8 @@
             android:fontFamily="serif"
             android:gravity="center"
             android:text="@string/register_here"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:textColor="#ffffff"/>
 
     </LinearLayout>
 

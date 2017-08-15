@@ -106,7 +106,7 @@ public class MainMenu extends AppCompatActivity implements Tab0User.SendInfo{
         adapter.addFragment(new Tab0User(), "User");
         adapter.addFragment(new Tab1Battle(), "Battle");
         adapter.addFragment(new Tab2Character(), "Brawler");
-        adapter.addFragment(new Tab3Intro(), "Guide");
+        adapter.addFragment(new Tab3Intro(), "About");
         viewPager.setAdapter(adapter);
     }
 

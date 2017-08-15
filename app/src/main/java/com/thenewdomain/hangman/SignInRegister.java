@@ -118,5 +118,10 @@ public class SignInRegister extends AppCompatActivity{
                 });
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        //do nothing
+    }
 }
 

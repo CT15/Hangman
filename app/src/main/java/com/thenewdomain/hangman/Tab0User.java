@@ -1,5 +1,6 @@
 package com.thenewdomain.hangman;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -79,6 +80,10 @@ public class Tab0User extends Fragment {
         databaseReference = firebaseDatabase.getReference().child("users").child(userID);
         userInfo = new UserInformation();
 
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading User Information ...");
+        progressDialog.show();
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -96,21 +101,27 @@ public class Tab0User extends Fragment {
                 switch (currentChosenCharacter){
                     case "Billy":
                         ivCharacterImage.setImageResource(R.drawable.character_billy);
+                        progressDialog.dismiss();
                         break;
                     case "Nagase":
                         ivCharacterImage.setImageResource(R.drawable.character_nagase);
+                        progressDialog.dismiss();
                         break;
                     case "Leo Kim":
                         ivCharacterImage.setImageResource(R.drawable.character_leokim);
+                        progressDialog.dismiss();
                         break;
                     case "Dr. James":
                         ivCharacterImage.setImageResource(R.drawable.character_drjames);
+                        progressDialog.dismiss();
                         break;
                     case "Yasuo":
                         ivCharacterImage.setImageResource(R.drawable.character_yasuo);
+                        progressDialog.dismiss();
                         break;
                     case "Carter":
                         ivCharacterImage.setImageResource(R.drawable.character_carter);
+                        progressDialog.dismiss();
                         break;
                 }
 

@@ -43,7 +43,9 @@ public class BattleResultActivity extends AppCompatActivity {
     //xml
     private TextView tvUserName, tvCharacter, tvBattleStatus, tvPoint;
     private Button btnBackToMainMenuAfterBattle;
-    private ImageView ivCharacterImg;
+    private ImageView ivExecutionerImg;
+
+    private String currentChosenCharacter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +57,7 @@ public class BattleResultActivity extends AppCompatActivity {
         tvBattleStatus = (TextView) findViewById(R.id.tvBattleStatus);
         tvPoint = (TextView) findViewById(R.id.tvPoint);
         btnBackToMainMenuAfterBattle = (Button) findViewById(R.id.btnBackToMainMenuAfterBattle);
-        ivCharacterImg = (ImageView) findViewById(R.id.ivCharacterImg2);
+        ivExecutionerImg = (ImageView) findViewById(R.id.ivExecutionerImg);
 
         intent = getIntent();
         roomKey = intent.getStringExtra("KEY");
@@ -68,29 +70,8 @@ public class BattleResultActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 tvUserName.setText(dataSnapshot.child("userName").getValue(String.class));
-                String currentChosenCharacter = dataSnapshot.child("currentChosenCharacter").getValue(String.class);
+                currentChosenCharacter = dataSnapshot.child("currentChosenCharacter").getValue(String.class);
                 tvCharacter.setText(currentChosenCharacter);
-
-                switch (currentChosenCharacter){
-                    case "Billy":
-                        ivCharacterImg.setImageResource(R.drawable.character_billy);
-                        break;
-                    case "Nagase":
-                        ivCharacterImg.setImageResource(R.drawable.character_nagase);
-                        break;
-                    case "Leo Kim":
-                        ivCharacterImg.setImageResource(R.drawable.character_leokim);
-                        break;
-                    case "Dr. James":
-                        ivCharacterImg.setImageResource(R.drawable.character_drjames);
-                        break;
-                    case "Yasuo":
-                        ivCharacterImg.setImageResource(R.drawable.character_yasuo);
-                        break;
-                    case "Carter":
-                        ivCharacterImg.setImageResource(R.drawable.character_carter);
-                        break;
-                }
 
                 point = dataSnapshot.child("rankPoints").getValue(Integer.class);
             }
@@ -114,25 +95,37 @@ public class BattleResultActivity extends AppCompatActivity {
                     tvBattleStatus.setText("DRAW");
                     tempText += DRAW;
                     point += DRAW;
+                    ivExecutionerImg.setImageResource(R.drawable.executioner_draw);
                 } else if (gameStanding == -2){
                     if(userID.equals(player1ID)){
                         tvBattleStatus.setText("DEFEAT");
                         tempText += LOSE;
                         point += LOSE;
+                        ivExecutionerImg.setImageResource(R.drawable.executioner_lose);
                     } else if (userID.equals(player2ID)){
                         tvBattleStatus.setText("VICTORY");
                         tempText += WIN;
                         point += WIN;
+                        if(currentChosenCharacter.equals("Billy")) {
+                            tempText += " + 5";
+                            point += 5;
+                        }
+
                     }
                 } else if (gameStanding == 2){
                     if(userID.equals(player1ID)){
                         tvBattleStatus.setText("VICTORY");
                         tempText += WIN;
                         point += WIN;
+                        if(currentChosenCharacter.equals("Billy")) {
+                            tempText += " + 5";
+                            point += 5;
+                        }
                     } else if (userID.equals(player2ID)){
                         tvBattleStatus.setText("DEFEAT");
                         tempText += LOSE;
                         point += LOSE;
+                        ivExecutionerImg.setImageResource(R.drawable.executioner_lose);
                     }
                 }
                 tvPoint.setText(tempText);

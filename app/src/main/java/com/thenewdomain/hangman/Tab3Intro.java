@@ -1,5 +1,6 @@
 package com.thenewdomain.hangman;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,7 +24,7 @@ public class Tab3Intro extends Fragment {
         btnIntro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"FILLED WITH SCREENSHOTS!",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), GuidesMenu.class));
             }
         });
         return view;

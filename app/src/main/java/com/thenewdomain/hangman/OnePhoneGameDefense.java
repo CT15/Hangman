@@ -1,5 +1,6 @@
 package com.thenewdomain.hangman;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,10 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.textservice.SentenceSuggestionsInfo;
+import android.view.textservice.SpellCheckerSession;
+import android.view.textservice.SuggestionsInfo;
+import android.view.textservice.TextServicesManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,7 +19,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class OnePhoneGameDefense extends AppCompatActivity {
+public class OnePhoneGameDefense extends AppCompatActivity{
 
     private TextView tvA, tvB, tvC, tvD, tvE, tvF, tvG, tvH, tvI, tvJ, tvK, tvL, tvM, tvN, tvO, tvP,
                         tvQ, tvR, tvS, tvT, tvU, tvV, tvW, tvX, tvY, tvZ;
@@ -220,6 +225,4 @@ public class OnePhoneGameDefense extends AppCompatActivity {
     public void onBackPressed() {
         //do nothing
     }
-
-
 }

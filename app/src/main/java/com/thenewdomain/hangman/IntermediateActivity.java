@@ -35,9 +35,6 @@ public class IntermediateActivity extends AppCompatActivity {
     Boolean player1IsOut;
     Boolean player2IsOut;
 
-    ValueEventListener listener;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,5 +115,10 @@ public class IntermediateActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        //do nothing
     }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#3d3d3d"
     tools:context="com.thenewdomain.hangman.WaitingRoom">
 
     <LinearLayout
@@ -15,8 +16,15 @@
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            app:srcCompat="@drawable/hangmanlogo" />
+            android:layout_height="140dp"
+            app:srcCompat="@drawable/hangmanlogo1" />
+
+        <ImageView
+            android:id="@+id/ivExecutioner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/executioner_happy_dizzy" />
 
         <TextView
             android:id="@+id/tvPleaseWait"
@@ -28,7 +36,8 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:text="Waiting for the other player to set the secret word ..."
-            android:textSize="30sp" />
+            android:textSize="25sp"
+            android:textColor="#ffffff"/>
     </LinearLayout>
 
 </RelativeLayout>

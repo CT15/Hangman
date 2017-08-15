@@ -48,8 +48,7 @@ public class CharacterAbility extends AppCompatActivity implements View.OnClickL
         String ability = "";
         switch(characterName){
             case "Billy":
-                ability = "DEFENCE\nRandomly eliminates 3 letters not found in the secret word " +
-                        "during player's defending phase";
+                ability = "RANK\nPlayer gains additional 5 rank points if he emerges victorious in the battle";
                 ivCharacterImg.setImageResource(R.drawable.character_billy);
                 break;
             case "Nagase":

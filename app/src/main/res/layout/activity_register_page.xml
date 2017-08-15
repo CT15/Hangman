@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="#3d3d3d"
     tools:context="com.thenewdomain.hangman.RegisterPage">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="140dp"
             android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/hangmanlogo"
-            android:layout_marginTop="24dp"/>
+            app:srcCompat="@drawable/hangmanlogo1" />
 
         <TextView
             android:id="@+id/tvRegisterUser"
@@ -28,7 +28,8 @@
             android:fontFamily="cursive"
             android:gravity="center"
             android:text="Register User"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/etEmail2"
@@ -41,7 +42,12 @@
             android:fontFamily="serif"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@drawable/oval" />
 
         <EditText
             android:id="@+id/etPassword2"
@@ -51,10 +57,16 @@
             android:layout_below="@+id/etUserName2"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="serif"
             android:hint="Password (min 6 characters)"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textSize="15sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@drawable/oval"/>
 
         <EditText
             android:id="@+id/etConfirmPassword"
@@ -62,10 +74,16 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="serif"
             android:hint="Confrim Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textSize="15sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@drawable/oval"/>
 
         <Button
             android:id="@+id/btnRegister"
@@ -76,7 +94,9 @@
             android:layout_marginTop="10dp"
             android:fontFamily="serif"
             android:text="Register"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            android:background="@drawable/oval_blue"
+            android:textColor="#ffffff" />
 
         <Button
             android:id="@+id/btnBackToSignIn"
@@ -84,10 +104,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="serif"
             android:text="Back"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            android:background="@drawable/oval_blue"
+            android:textColor="#ffffff" />
     </LinearLayout>
 
 </RelativeLayout>

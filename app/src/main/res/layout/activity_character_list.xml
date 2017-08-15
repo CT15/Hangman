@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#3d3d3d"
     tools:context="com.thenewdomain.hangman.CharacterList">
 
 
@@ -21,7 +22,8 @@
             android:text="Choose Wisely ..."
             android:textSize="30sp"
             android:gravity="center"
-            android:fontFamily="serif"/>
+            android:fontFamily="serif"
+            android:textColor="#ffffff"/>
 
         <TextView
             android:id="@+id/textView7"
@@ -33,12 +35,13 @@
             android:layout_marginRight="30dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:fontFamily="sans-serif-condensed"/>
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#ffffff"/>
 
         <ListView
             android:id="@+id/lvCharacter"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="247dp"
             android:layout_marginTop="20dp"></ListView>
 
         <Button
@@ -49,7 +52,9 @@
             android:layout_marginTop= "20dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:background="@drawable/oval_blue"
+            android:textColor="#ffffff"
             android:fontFamily="serif"/>
     </LinearLayout>
 

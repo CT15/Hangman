@@ -72,7 +72,7 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
         tvSecretWord = (TextView) findViewById(R.id.tvSecretWord2);
 
         etGuessLetter = (EditText) findViewById(R.id.etGuessLetter2);
-        etGuessLetter.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+        etGuessLetter.setFilters(new InputFilter[]{new InputFilter.AllCaps(), new InputFilter.LengthFilter(1)});
 
         tvCharacter1 = (TextView) findViewById(R.id.tvCharacter1);
         tvCharacter2 = (TextView) findViewById(R.id.tvCharacter2);
@@ -82,14 +82,18 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
         intent = getIntent();
         roomKey = intent.getStringExtra("KEY");
 
+        messageStorage = new ArrayList<String>();
+        letterStorage = new ArrayList<String>();
+
         roomReference = FirebaseDatabase.getInstance().getReference().child("rooms").child(roomKey);
-        roomReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        roomReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String player1ID = dataSnapshot.child("player1ID").getValue(String.class);
                 String player2ID = dataSnapshot.child("player2ID").getValue(String.class);
 
                 gameStanding = dataSnapshot.child("gameStanding").getValue(Integer.class);
+                gameState = dataSnapshot.child("gameState").getValue(String.class);
 
                 player1Reference = FirebaseDatabase.getInstance().getReference().child("users").child(player1ID);
                 player1Reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -119,26 +123,12 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
                     }
                 });
 
-                gameState = dataSnapshot.child("gameState").getValue(String.class);
                 if(gameState.equals("player_1_guessing")){
                     secretWord = dataSnapshot.child("secretWord2").getValue(String.class);
                 } else if (gameState.equals("player_2_guessing")){
                     secretWord = dataSnapshot.child("secretWord1").getValue(String.class);
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        messageStorage = new ArrayList<String>();
-        letterStorage = new ArrayList<String>();
-
-        roomReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
                 messageStorage.clear();
                 if(gameState.equals("player_1_guessing")){
                     lifeLine = dataSnapshot.child("life1").getValue(Integer.class);
@@ -148,9 +138,9 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
                         messageStorage.add(child.getValue(String.class));
                     }
 
-                    for(DataSnapshot child: dataSnapshot.child("chosen1").getChildren()) {
+                    for (DataSnapshot child : dataSnapshot.child("chosen1").getChildren()) {
                         String tempLetter = child.getValue(String.class);
-                        if(!tempLetter.equals("test")){
+                        if (!tempLetter.equals("test")) {
                             letters.get(tempLetter).setVisibility(View.INVISIBLE);
                             letterStorage.add(tempLetter);
                         }
@@ -163,9 +153,9 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
                         messageStorage.add(child.getValue(String.class));
                     }
 
-                    for(DataSnapshot child: dataSnapshot.child("chosen2").getChildren()) {
+                    for (DataSnapshot child : dataSnapshot.child("chosen2").getChildren()) {
                         String tempLetter = child.getValue(String.class);
-                        if(!tempLetter.equals("test")){
+                        if (!tempLetter.equals("test")) {
                             letters.get(tempLetter).setVisibility(View.INVISIBLE);
                             letterStorage.add(tempLetter);
                         }
@@ -245,7 +235,7 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.toString().trim().equals("")){
+                if(s.toString().trim().equals("") || !isValidWord(s.toString().trim())){
                     btnCheck.setEnabled(false);
                 } else {
                     btnCheck.setEnabled(true);
@@ -293,12 +283,32 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
                 letterStorage.add(chosenLetter);
                 if(gameState.equals("player_1_guessing")){
                     temp.put("messages2", messageStorage);
-                    temp.put("chosen1", letterStorage);
+                    if(!tvCharacter2.getText().toString().trim().equals("Carter"))
+                        temp.put("chosen1", letterStorage);
                 } else if (gameState.equals("player_2_guessing")){
                     temp.put("messages1", messageStorage);
-                    temp.put("chosen2", letterStorage);
+                    if(!tvCharacter1.getText().toString().trim().equals("Carter"))
+                        temp.put("chosen2", letterStorage);
                 }
                 roomReference.updateChildren(temp);
+            }
+        });
+
+        tvCharacter1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toPopUpCharacterAbility = new Intent(TwoPhoneGameDefense.this, PopUpCharacterAbility.class);
+                toPopUpCharacterAbility.putExtra("CHARACTER", tvCharacter1.getText().toString().trim());
+                startActivity(toPopUpCharacterAbility);
+            }
+        });
+
+        tvCharacter2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toPopUpCharacterAbility = new Intent(TwoPhoneGameDefense.this, PopUpCharacterAbility.class);
+                toPopUpCharacterAbility.putExtra("CHARACTER", tvCharacter2.getText().toString().trim());
+                startActivity(toPopUpCharacterAbility);
             }
         });
     }
@@ -397,5 +407,9 @@ public class TwoPhoneGameDefense extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //do nothing
+    }
+
+    private boolean isValidWord(String secretWord) {
+        return secretWord.matches("[a-zA-Z]+");
     }
 }

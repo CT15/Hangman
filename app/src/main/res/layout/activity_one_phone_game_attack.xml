@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#3d3d3d"
     tools:context="com.thenewdomain.hangman.OnePhoneGameAttack">
 
     <LinearLayout
@@ -15,8 +16,8 @@
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            app:srcCompat="@drawable/hangmanlogo" />
+            android:layout_height="140dp"
+            app:srcCompat="@drawable/hangmanlogo1" />
 
         <TextView
             android:id="@+id/tvPlayer1"
@@ -26,7 +27,8 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:text="@string/player_1"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:textColor="#ffffff"/>
 
         <TextView
             android:id="@+id/tvEnterWord"
@@ -36,7 +38,8 @@
             android:fontFamily="cursive"
             android:gravity="center"
             android:text="Enter Secret Word"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/etWordToBeGuessed"
@@ -46,10 +49,15 @@
             android:ems="10"
             android:gravity="center"
             android:inputType="textCapCharacters"
-            android:textSize="25sp"
+            android:textSize="20sp"
             tools:ignore="LabelFor"
             android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@drawable/oval"/>
 
         <Button
             android:id="@+id/btnConfirm"
@@ -60,7 +68,9 @@
             android:layout_marginTop="20dp"
             android:fontFamily="serif"
             android:text="@string/confirm"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            android:background="@drawable/oval_blue"
+            android:textColor="#ffffff" />
 
         <Button
             android:id="@+id/btnBack"
@@ -71,7 +81,9 @@
             android:layout_marginTop="13dp"
             android:fontFamily="serif"
             android:text="@string/back"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            android:background="@drawable/oval_blue"
+            android:textColor="#ffffff" />
 
     </LinearLayout>
 

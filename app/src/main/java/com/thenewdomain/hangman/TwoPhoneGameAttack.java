@@ -59,7 +59,7 @@ public class TwoPhoneGameAttack extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.lvAttack);
         messageStorage = new ArrayList<String>();
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, messageStorage);
+        adapter = new ArrayAdapter<String>(this, R.layout.text_view_attack, messageStorage);
         lv.setAdapter(adapter);
 
         intent = getIntent();
@@ -130,5 +130,28 @@ public class TwoPhoneGameAttack extends AppCompatActivity {
 
             }
         });
+
+        tvCharacter1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toPopUpCharacterAbility = new Intent(TwoPhoneGameAttack.this, PopUpCharacterAbility.class);
+                toPopUpCharacterAbility.putExtra("CHARACTER", tvCharacter1.getText().toString().trim());
+                startActivity(toPopUpCharacterAbility);
+            }
+        });
+
+        tvCharacter2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toPopUpCharacterAbility = new Intent(TwoPhoneGameAttack.this, PopUpCharacterAbility.class);
+                toPopUpCharacterAbility.putExtra("CHARACTER", tvCharacter2.getText().toString().trim());
+                startActivity(toPopUpCharacterAbility);
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        //do nothing
     }
 }

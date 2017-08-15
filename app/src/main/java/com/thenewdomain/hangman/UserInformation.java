@@ -9,7 +9,6 @@ public class UserInformation {
     public String userName;
     public String currentChosenCharacter;
     public int rankPoints;
-    public int noOfCharactersUnlocked;
 
     public UserInformation(){
         this("");
@@ -19,7 +18,6 @@ public class UserInformation {
         this.userName = userName;
         this.currentChosenCharacter = "character 1";
         this.rankPoints = 0;
-        this.noOfCharactersUnlocked = 1;
     }
 
     //gameplay / features
@@ -35,10 +33,6 @@ public class UserInformation {
         this.rankPoints += 1;
     }
 
-    public void unlockCharacter(){
-        if(this.noOfCharactersUnlocked < NO_OF_CHARACTERS) noOfCharactersUnlocked++;
-    }
-
     //getter methods
     public String getUserName() {
         return userName;
@@ -52,10 +46,6 @@ public class UserInformation {
         return rankPoints;
     }
 
-    public int getNoOfCharactersUnlocked() {
-        return noOfCharactersUnlocked;
-    }
-
     //setter methods used only when retrieving data from Firebase database
     public void setUserName(String userName) {
         this.userName = userName;
@@ -63,10 +53,6 @@ public class UserInformation {
 
     public void setRankPoints(int rankPoints) {
         this.rankPoints = rankPoints;
-    }
-
-    public void setNoOfCharactersUnlocked(int noOfCharactersUnlocked) {
-        this.noOfCharactersUnlocked = noOfCharactersUnlocked;
     }
 
     //other setter method

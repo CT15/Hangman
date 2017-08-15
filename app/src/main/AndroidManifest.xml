@@ -12,13 +12,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SignInRegister"
+            android:name=".SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -67,7 +67,27 @@
         <activity
             android:name=".IntermediateActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".CharacterAbility"></activity>
+        <activity
+            android:name=".CharacterAbility"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignInRegister"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GuidesMenu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HangmanRules"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutOnePhoneGame"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutTwoPhoneGame"
+            android:screenOrientation="portrait" />
+        <activity android:name=".PopUpCharacterAbility"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
     </application>
 
 </manifest>
