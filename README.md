@@ -1,6 +1,6 @@
 # Hangman
 * I used Android Studio create a Hangman Game.
-* There are two game modes: one-phone-game and two-phone-game
+* There are two game modes: one-phone-game and two-phone-game.
 * I leveraged on Firebase real time database to create a PvP rooming system.
 
 ## Characters
