@@ -3,19 +3,19 @@ I used Android Studio create a Hangman Game.
 There are two game modes: one-phone-game and two-phone-game
 I leveraged on Firebase real time database to create a PvP rooming system.
 
-# Characters
+## Characters
 This is not an ordinary Hangman Game.
 Characters with various abilities can be chosen to help the player to win the multiplayer Hangman Game.
 Characters with more powerful abilities can be unlocked upon the collection of enough rank points.
 Rank points are only awarded in two-phone-game.
 Characters' abilities can only be activated in two-phone-game.
 
-# One-Phone-Game
+## One-Phone-Game
 A digitalised version of what is usually done on paper and pen.
 The first player will key in a secret word.
 The second player will try to figure out the secret word within 7 tries.
 
-# Two-Phone_Game
+## Two-Phone-Game
 Two players must enter the same room name in order to be connected to each other.
 Each match consists of 2 rounds (each player will have the chance to be the word setter and guesser).
 The 3 possible results of a match are: VICTORY, DEFEAT and DRAW (rank points will be awarded accordingly).
