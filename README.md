@@ -21,7 +21,7 @@
 * The 3 possible results of a match are: VICTORY, DEFEAT and DRAW (rank points will be awarded accordingly).
 
 # Reflection
-* As this is my first exposure to software engineering project, my codes can still be further refactored.
+* As this is my first exposure to software development project, my codes can still be further refactored.
 * There are still minor bugs (that do not interfere with the gameplay) in the code that need to be rectified.
 * Coding standards can be better adhered to.
 * Personally feel the need to learn more about how to implement Firebase API better.
