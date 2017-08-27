@@ -20,6 +20,7 @@ Two players must enter the same room name in order to be connected to each other
 Each match consists of 2 rounds (each player will have the chance to be the word setter and guesser).
 The 3 possible results of a match are: VICTORY, DEFEAT and DRAW (rank points will be awarded accordingly).
 
+
 # Reflection
 As this is my first exposure to software engineering project, my codes can still be further refactored.
 There are still minor bugs (that do not interfere with the gameplay) in the code that need to be rectified.
