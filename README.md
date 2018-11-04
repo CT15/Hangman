@@ -1,4 +1,8 @@
 # Hangman
+
+<p align="center">
+    <img width="800" src="https://github.com/CT15/Hangman/blob/master/poster/Hangman.png">
+</p>
 * I used Android Studio create a Hangman Game.
 * There are two game modes: one-phone-game and two-phone-game.
 * I leveraged on Firebase real time database to create a PvP rooming system.
